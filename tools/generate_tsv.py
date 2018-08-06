@@ -42,18 +42,18 @@ def load_image_ids(split_name):
     ''' Load a list of (path,image_id tuples). Modify this to suit your data locations. '''
     split = []
     if split_name == 'coco_test2014':
-      with open('/data/coco/annotations/image_info_test2014.json') as f:
+      with open('data/coco/annotations/image_info_test2014.json') as f:
         data = json.load(f)
         for item in data['images']:
           image_id = int(item['id'])
-          filepath = os.path.join('/data/test2014/', item['file_name'])
+          filepath = os.path.join('data/coco/test2014/', item['file_name'])
           split.append((filepath,image_id))
     elif split_name == 'coco_test2015':
-      with open('/data/coco/annotations/image_info_test2015.json') as f:
+      with open('data/coco/annotations/image_info_test2015.json') as f:
         data = json.load(f)
         for item in data['images']:
           image_id = int(item['id'])
-          filepath = os.path.join('/data/test2015/', item['file_name'])
+          filepath = os.path.join('data/coco/test2015/', item['file_name'])
           split.append((filepath,image_id))
     elif split_name == 'genome':
       with open('/data/visualgenome/image_data.json') as f:
