@@ -55,6 +55,20 @@ def load_image_ids(split_name):
           image_id = int(item['id'])
           filepath = os.path.join('data/coco/test2015/', item['file_name'])
           split.append((filepath,image_id))
+    elif split_name == 'coco_train2014':
+      with open('data/coco/annotations/captions_train2014.json') as f:
+        data = json.load(f)
+        for item in data['images']:
+          image_id = int(item['id'])
+          filepath = os.path.join('data/coco/train2014/', item['file_name'])
+          split.append((filepath,image_id))
+    elif split_name == 'coco_val2014':
+      with open('data/coco/annotations/captions_val2014.json') as f:
+        data = json.load(f)
+        for item in data['images']:
+          image_id = int(item['id'])
+          filepath = os.path.join('data/coco/val2014/', item['file_name'])
+          split.append((filepath,image_id))
     elif split_name == 'genome':
       with open('/data/visualgenome/image_data.json') as f:
         for item in json.load(f):
